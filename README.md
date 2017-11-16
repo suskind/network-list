@@ -1,5 +1,5 @@
 # network-list
-List all network devices with hostname and vendor 
+List all network devices with an hostname and a vendor.
 
 ## Install
 
@@ -8,8 +8,9 @@ List all network devices with hostname and vendor
 
 ## Methods: 
 
- * `scan(options, callback)` - scan all network devices and an array will all results is passed to callback
- * `scanEach(options, callback)` - scan all network devices and callback is called for each device passing the device object
+ * `scan(options, callback)` - Scan all the network devices. You'll get an array with all the results as an argument of the callback.
+
+ * `scanEach(options, callback)` - Scan all the network devices. The callback will be executed on each iteration with an object device as argument
 
 
 ## How To:
@@ -18,7 +19,7 @@ List all network devices with hostname and vendor
 const netList = require('network-list');
 
 netList.scanEach({}, (err, obj) => {
-    console.log(obj); // object device
+    console.log(obj); // device object
 });
 
 
@@ -33,14 +34,14 @@ netList.scan({} (err, arr) => {
 
 ```
 {
-    ip: '192.168.1' // optional base ip, by default will be the first 3rd octets of IP address
+    ip: '192.168.1' // optional base ip, by default will be the first 3 octets of IP address
     timeout: <number>, // optional ping timeout
     vendor: <boolean>, // default: true - get device vendor using MAC Address
 }
 
 ```
 
-## Result 
+## Result: Device Object
 
 ```
 {
