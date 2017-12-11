@@ -39,12 +39,12 @@ function getInfo(ip, callback) {
                     result.hostname = (host && host.length) ? host[0] : null;
                 }
                 arp.getMAC(ip, (err2, mac) => {
-                    if(err2) {
+                    if(err2 || !mac) {
                         result.macError = 'Error on get Mac address';
                     } else {
                         result.mac = mac.replace(/:([^:]{1}):/g, ':0$1:');
                     }
-					if (options.vendor) {
+					if (options.vendor && mac) {
 						request.get(`http://macvendors.co/api/${mac.replace(/:([^:]{1}):/g, ':0$1:')}/json`, (err3, httpRes, body) => {
                                 // console.log(httpRes.statusCode, body);
 							if(err3 || httpRes.statusCode !== 200) {
