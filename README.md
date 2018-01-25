@@ -23,7 +23,7 @@ netList.scanEach({}, (err, obj) => {
 });
 
 
-netList.scan({} (err, arr) => {
+netList.scan({}, (err, arr) => {
     console.log(arr); // array with all devices
 });
 
