@@ -45,7 +45,7 @@ function getInfo(ip, callback) {
                         result.mac = mac.replace(/:([^:]{1}):/g, ':0$1:');
                     }
 					if (options.vendor && mac) {
-						request.get(`http://macvendors.co/api/${mac.replace(/:([^:]{1}):/g, ':0$1:')}/json`, (err3, httpRes, body) => {
+						request.get(`https://macvendors.co/api/${mac.replace(/:([^:]{1}):/g, ':0$1:')}/json`, (err3, httpRes, body) => {
                                 // console.log(httpRes.statusCode, body);
 							if(err3 || httpRes.statusCode !== 200) {
 								// console.log(`Error on get vendor... ip: ${ip} : Mac: ${mac}`);
